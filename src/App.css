@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+.expandable-card-container{
+  height:"300px";
+  width:"80%";
+  font-weight:"bolder";
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body{
+  font-family: "Roboto", "Sans Serif";
+  font-size: 18pt;
+  color: #fff;
+  /* background: #3498db; */
+  /* border: 1px solid rgb(36, 44, 44); */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper{
+  margin: 10% auto;
+  width: 80%;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+label{
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  border: 2px solid rgb(94, 37, 37);
+  /* border-bottom: none; */
+  background: #26C281;
+  align-items: inherit;
+  align-self: start;
+  
 }
 
-.App-link {
-  color: #61dafb;
+/* label:hover{
+  background: #26C281;
+} */
+
+label.last{
+  border-bottom: 1px solid #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul ul li{
+  padding: 10px;
+  background: #59ABE3;
+}
+
+
+input[type="checkbox"]{
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="checkbox"] ~ ul{
+  height: 0;
+  transform: scaleY(0);
+}
+
+input[type="checkbox"]:checked ~ ul{
+  height: 100%;
+  transform-origin: top;
+  transition: transform .2s ease-out;
+  transform: scaleY(1); 
+}
+
+input[type="checkbox"]:checked + label{
+  background: #26C281;
+  border-bottom: 1px solid #fff;
 }
